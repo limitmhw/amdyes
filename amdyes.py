@@ -199,13 +199,16 @@ def main(stdscr):
     height, width = stdscr.getmaxyx()
     update_interval = 1
     while True:
-        stdscr.clear()
-        output = get_data(height, width)
-        for i, line in enumerate(output):
-            if i < height - 1:
-                stdscr.addstr(i + 1, 0, line)
-        stdscr.refresh()
-        time.sleep(update_interval)
+        try:
+            stdscr.clear()
+            output = get_data(height, width)
+            for i, line in enumerate(output):
+                if i < height - 1:
+                    stdscr.addstr(i + 1, 0, line)
+            stdscr.refresh()
+            time.sleep(update_interval)
+        except:
+            pass
 
 if __name__ == '__main__' or True:
     myInitializeRsmi()
